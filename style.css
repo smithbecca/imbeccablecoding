@@ -1,0 +1,457 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* https://fontawesome.com/icons/categories/coding?f=classic&s=light 
+https://undraw.co/search 
+https://github.com/dev-keshav/html-css-website-v1/blob/starter-images/styles.css */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* navagation bar*/
+.navbar {
+    background-color: white;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;   /*ensures that it's always above the websites contents*/
+}
+
+/* icon in logo */
+.fa-code {
+    margin-right: 0.5rem;
+  }
+
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+/* logo */
+#navbar__logo {
+    background-color: white;
+    color: black;
+    /* background-image: linear-gradient(to top, rgb(0, 0, 81) 0%, blue 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent; */
+    display: flex;
+    align-items: center;   
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+/* drop down menu */
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+.navbar__item {
+    height: 80px;   
+}
+
+/* actual items in nav bar */
+.navbar__links {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+}
+
+/* contact button */
+.navbar__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: lightblue;
+    color: black;
+}
+
+.button:hover {
+    background: rgb(30, 30, 237);
+    transition: all 0.3s ease;
+}
+
+.navbar__links:hover {
+    color: rgb(39, 39, 39);
+    transition: all 0.3s ease; 
+}
+
+/* allows for responsive website when it changes size */
+@media screen and (max-width: 960px) {
+    .navbar__container {
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        z-index: 1;
+        width: 100%;
+        max-width: 1300px;
+        padding: 0;
+    }
+    /* the dropdown menu when click hamburger*/
+    .navbar__menu { 
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        top: -1000px;
+        opacity: 1; 
+        transition: all 0.5s ease;
+        height: 50vh;
+        z-index: -1;
+        background: white;
+    }
+    /* the elements for the drop down menu */
+    .navbar__menu.active {  /* javascript activates this */
+        background: white;
+        top: 100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 99;
+        height: 50vh;
+        font-size: 1.6rem;
+    }
+
+    #navbar__logo {
+        padding-left: 25px; 
+    }
+
+    .navbar__toggle {
+        display: none;
+    }
+
+    .navbar__item {
+        width: 100%;
+    }
+    /* elements in the drop down menu */
+    .navbar__links {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    .navbar__btn {
+        padding-bottom: 2rem;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 80px;
+        margin: 0;
+    }
+
+    #mobile-menu {
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+    /* makes the hamburger appear */
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        background-color: black;
+    }
+    /* transitions for when the hammy is clicked */
+    #mobile-menu.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    #mobile-menu.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    #mobile-menu.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Hero section */
+
+.main {
+    background-color: #BED0AD;
+    height: 500px;
+}
+
+.main__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* makes it so it's a 50/50 screen split */
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    height: 60vh;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+}
+
+.main__content h1 {
+    text-align: center;
+    font-size: 4rem;
+    color: black;
+}
+
+.main__content p {
+    text-align: center;
+    margin-top: 1rem;
+    /* padding-right: 50px; */
+    font-size: 1.5rem;
+    font-weight: 700; 
+}
+
+#main__img {
+    /* text-align: center; */
+    height: 80%;
+    width: 80%;
+}
+
+.main__img--container img {
+    padding-left: 50px; 
+    align-items: center;
+    height: 400px;
+    width: 500px;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 786px) {
+    .main__container {
+        display: grid;
+        grid-template-columns: auto;
+        align-items: center;
+        justify-self: center;
+        width: 100%;
+        margin: 0 auto;
+        height: 90vh;
+    }
+
+    .main__content {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .main__content h1 {
+        align-items: center;
+        font-size: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .main__content p {
+        align-items: center;
+        margin-top: 1rem;
+        font-size: 1.5rem;
+    }
+
+}
+
+@media screen and (max-width: 480px){
+    .main__content h1 {
+        align-items: center;
+        font-size: 2rem;
+        margin-top: 3rem;
+    }
+
+    .main__content p {
+        align-items: center;
+        margin-top: 2rem;
+        font-size: 1.5rem;
+    }
+}
+
+/* Services Section */
+
+.services {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.services h1 {
+    color: black;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    font-size: 2.5rem;
+}
+
+.services__container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.services__card {
+    margin: 1rem;
+    height: 200px;
+    width: 325px;
+    /*height: 400px;
+    width: 525px; */
+    border-radius: 4px;
+    background-image: url(images/pic2.jpg);
+    background-size: cover;
+    position: relative;
+    /* color: black; */
+    /* background-image: linear-gradient(to bottom, ); */
+}
+
+.services__card:nth-child(2) {
+    background-image: url(images/pic3.jpg);
+}
+
+.services__card:nth-child(3) {
+    background-image: url(images/pic4.jpg);
+}
+
+.services h2 {
+    position: absolute;
+    top: 200px;
+    left: 30px;
+}
+
+.services__card p{
+    position: absolute;
+    top: 230px;
+    left: 30px;
+}
+
+.services__card:hover {
+    transform: scale(1.075);
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 960px){
+    .services {
+        height: 1600px;
+    }
+
+    .services h1 {
+        font-size: 2rem;
+        margin-top: 12rem;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .services {
+        height: 1400px;
+    }
+
+    .services h1 {
+        font-size: 1.2rem;
+    }
+
+    .services__card {
+        width: 300px;
+    }
+
+    .services__card p {
+        margin: 2rem;
+    }
+}
+
+/* footer section */
+
+
+
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background-color: #4E8098;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.logo {
+    font-size: 2em;
+    color: white;
+    user-select: none;
+}
+
+.navigation a {
+   position: relative; 
+   font-size: 1.1em;
+   color: white;
+   text-decoration: none;
+   font-weight: 500;
+   margin-left: 40px;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+} */
